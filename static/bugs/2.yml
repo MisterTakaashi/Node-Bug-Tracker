@@ -1,0 +1,14 @@
+projet: Mon super Projet
+nom: Un deuxieme bug !
+description: Le deuxième bug
+author: MisterTakaashi
+date: 1426634374
+
+etapes:
+    - etape: Faire un truc vraiment pas mal
+    - etape: Faire un autre truc
+    - etape: Un dernier truc
+
+environnement:
+    - os: Windows 8
+      navigateur: Chrome 14

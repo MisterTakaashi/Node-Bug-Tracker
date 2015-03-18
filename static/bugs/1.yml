@@ -1,0 +1,14 @@
+projet: Mon super Projet
+nom: Un premier bug !
+description: Il y a un bug ici, parceque c'est pas cool du tout !
+author: MisterTakaashi
+date: 1426634374
+
+etapes:
+    - etape: Faire un truc pas mal
+    - etape: Faire un autre truc
+    - etape: Un dernier truc
+
+environnement:
+    - os: Windows 8
+      navigateur: Chrome 14

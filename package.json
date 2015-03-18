@@ -1,0 +1,11 @@
+{
+    "name": "bug-tracker",
+    "version": "0.1.0",
+    "dependencies": {
+        "express": "~4.11.0",
+        "ejs": "~2.1.4",
+        "js-yaml": "~3.2.7"
+    },
+    "author": "MisterTakaashi",
+    "description": "Un Bug Tracker basique basé sur bootstrap"
+}
