@@ -30,7 +30,11 @@
             <li><a href="/">Acceuil</a></li>
           </ul>
           <ul class="nav navbar-nav navbar-right">
-            <li><a href="/login">Connexion</a></li>
+              <% if (session.pseudo != undefined){ %>
+                  <li><a href="#"><%= session.pseudo %></a></li>
+              <% }else{ %>
+                  <li><a href="/login">Connexion</a></li>
+              <% } %>
           </ul>
         </div>
       </div>
