@@ -11,6 +11,9 @@
 #connexion button{
     float: right;
 }
+#ajouterEtape{
+    float: right;
+}
 #describBugs h3{
     margin-top: 0;
 }
@@ -23,6 +26,9 @@
 
 @media (min-width: 768px){
     #connexion button{
+        float: none;
+    }
+    #ajouterEtape{
         float: none;
     }
 }
