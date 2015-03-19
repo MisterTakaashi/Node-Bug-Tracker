@@ -16,9 +16,14 @@ app.use(session({ secret: 's3cr3tind3chiffrabl3' }))
 
 .get('/', function (req, res) {
     var nomProjet = "Mon super Projet"
+    var arrTitres = new Array();
 
     fs.readdir(__dirname + '/static/bugs', function (err, stats){
-        res.render('index.ejs', {session: req.session, nomProjet: nomProjet, nbrBugs: stats.length})
+        for (var i = 0; i < stats.length; i++) {
+            var bug = yaml.safeLoad(fs.readFileSync(__dirname + '/static/bugs/' + stats[i], 'utf8'));
+            arrTitres.push(bug.nom)
+        }
+        res.render('index.ejs', {session: req.session, nomProjet: nomProjet, nbrBugs: stats.length, listeBugs: stats, titres: arrTitres})
     })
 })
 
@@ -44,7 +49,7 @@ app.use(session({ secret: 's3cr3tind3chiffrabl3' }))
                     req.session.dateinscri = user.dateinscri
                     req.session.projets = user.projets
 
-                    res.redirect('/');
+                    res.redirect('/')
                 }
             }
         }
@@ -52,7 +57,26 @@ app.use(session({ secret: 's3cr3tind3chiffrabl3' }))
 })
 
 .get('/bug/add', function (req, res) {
+    if (req.session.pseudo == undefined) { res.redirect('/login') }
     res.render('addbug.ejs', {session: req.session})
+})
+
+.post('/bug/add',urlencodedParser, function(req, res) {
+    var texteAEcrire = "projet: " + req.body.projet + "\nnom: " + req.body.titreForm + "\ndescription: " + req.body.descriptionForm + "\nauthor: " + req.session.pseudo + "\ndate: " + Math.floor(Date.now() / 1000) + "\n\netapes:\n"
+    //console.log(req.body.etapeForm)
+    for (var i = 0; i < req.body.etapeForm.length; i++){
+        texteAEcrire += "    - etape: " + req.body.etapeForm[i] + "\n"
+    }
+    texteAEcrire += "\nenvironnement:\n    - os: " + req.body.osForm + "\n      navigateur: " + req.body.navForm
+
+    var nbrBugs = fs.readdirSync(__dirname + '/static/bugs').length + 1
+
+    fs.writeFile(__dirname + '/static/bugs/'+nbrBugs+'.yml', texteAEcrire, function (err) {
+        if (err) throw err;
+        console.log('Nouveau bug enregistré');
+        //console.log(texteAEcrire)
+    });
+    res.redirect('/')
 })
 
 .get('/bug/:idbug', function (req, res) {

@@ -1,0 +1,13 @@
+projet: Un autre projet
+nom: Je suis le titre !
+description: C'ets moi la description :'(
+author: MisterTakaashi
+date: 1426801987
+
+etapes:
+    - etape: Etape 1
+    - etape: Etape 2
+
+environnement:
+    - os: Windaube 8
+      navigateur: Chrome

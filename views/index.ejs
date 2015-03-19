@@ -54,12 +54,11 @@
                 <div class="panel-heading"><%= nbrBugs %> Bugs ouverts</div>
                     <div class="panel-body" style="padding: 0;margin: 0;">
                         <ul>
+                            <% for (var i = 0; i < listeBugs.length; i++) { %>
                             <li>
-                                <a href="/bug/1"><div class="bug"><span class="label label-success">Ajout</span> Bug concernant un truc inutile</div></a>
+                                <a href="/bug/<%= listeBugs[i].split('.')[0] %>"><div class="bug"><!--<span class="label label-success">Ajout</span> --><%= titres[i] %></div></a>
                             </li>
-                            <li>
-                                <a href="/bug/2"><div class="bug"><span class="label label-danger">Bug</span> Un autre truc inutile</div></a>
-                            </li>
+                            <% } %>
                         </ul>
                     </div>
                 </div>
