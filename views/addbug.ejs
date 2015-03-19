@@ -30,7 +30,11 @@
             <li><a href="/">Acceuil</a></li>
           </ul>
           <ul class="nav navbar-nav navbar-right">
-            <li><a href="/login">Connexion</a></li>
+              <% if (session.pseudo != undefined){ %>
+                  <li><a href="#"><%= session.pseudo %></a></li>
+              <% }else{ %>
+                  <li><a href="/login">Connexion</a></li>
+              <% } %>
           </ul>
         </div>
       </div>
@@ -39,15 +43,16 @@
 
     <div id="corps">
         <div class="container">
-            <form>
+            <form action="#" method="POST">
                 Projet concerné:
-            <select class="form-control">
-                <option>Mon super projet</option>
-                <option>Mon autre super projet</option>
+            <select class="form-control" name="projet">
+                <% for (var i = 0; i < session.projets.length; i++) {%>
+                    <option value="<%= i %>"><%= session.projets[i] %></option>
+                <% } %>
             </select>
             <hr>
             <div class="panel panel-default" id="describBugs">
-                <div class="panel-heading">{Pseudo} ouvre un nouveau bug</div>
+                <div class="panel-heading"><%= session.pseudo %> ouvre un nouveau bug</div>
                     <div class="panel-body">
                         <h3>Description</h3>
                         <textarea class="form-control"></textarea>

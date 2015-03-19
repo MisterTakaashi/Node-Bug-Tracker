@@ -4,7 +4,10 @@
     "dependencies": {
         "express": "~4.11.0",
         "ejs": "~2.1.4",
-        "js-yaml": "~3.2.7"
+        "js-yaml": "~3.2.7",
+        "body-parser": "~1.12.2",
+        "cookie-session": "~1.1.0",
+        "js-sha256": "~0.2.3"
     },
     "author": "MisterTakaashi",
     "description": "Un Bug Tracker basique basé sur bootstrap"
