@@ -63,9 +63,12 @@ app.use(session({ secret: 's3cr3tind3chiffrabl3' }))
 
 .post('/bug/add',urlencodedParser, function(req, res) {
     var texteAEcrire = "projet: " + req.body.projet + "\nnom: " + req.body.titreForm + "\ndescription: " + req.body.descriptionForm + "\nauthor: " + req.session.pseudo + "\ndate: " + Math.floor(Date.now() / 1000) + "\n\netapes:\n"
-    //console.log(req.body.etapeForm)
-    for (var i = 0; i < req.body.etapeForm.length; i++){
-        texteAEcrire += "    - etape: " + req.body.etapeForm[i] + "\n"
+    if (typeof(req.body.etapeForm) != "string"){
+        for (var i = 0; i < req.body.etapeForm.length; i++){
+            if (req.body.etapeForm[i] != '') { texteAEcrire += "    - etape: " + req.body.etapeForm[i] + "\n" }
+        }
+    }else{
+        texteAEcrire += "    - etape: " + req.body.etapeForm + "\n"
     }
     texteAEcrire += "\nenvironnement:\n    - os: " + req.body.osForm + "\n      navigateur: " + req.body.navForm
 

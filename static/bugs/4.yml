@@ -1,0 +1,13 @@
+projet: Mon super projet
+nom: Bonjour
+description: Truc
+author: MisterTakaashi
+date: 1426836445
+
+etapes:
+    - etape: Etape 1
+    - etape: Etape 2
+
+environnement:
+    - os: Windaube 8
+      navigateur: Chrome

@@ -1,0 +1,24 @@
+projet: Mon super projet
+nom: Une seule etape
+description: Description
+author: MisterTakaashi
+date: 1426836470
+
+etapes:
+    - etape: F
+    - etape: a
+    - etape: i
+    - etape: r
+    - etape: e
+    - etape:  
+    - etape: u
+    - etape: n
+    - etape:  
+    - etape: t
+    - etape: r
+    - etape: u
+    - etape: c
+
+environnement:
+    - os: Windaube 8
+      navigateur: Chrome

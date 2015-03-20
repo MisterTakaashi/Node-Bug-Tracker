@@ -55,13 +55,14 @@
                 <div class="panel-heading"><%= session.pseudo %> ouvre un nouveau bug</div>
                     <div class="panel-body">
                         <h3>Titre</h3>
-                        <input type="text" class="form-control" name="titreForm"/>
+                        <input type="text" class="form-control" name="titreForm" required/>
                         <hr>
                         <h3>Description</h3>
-                        <textarea class="form-control" style="height: 190px;" name="descriptionForm"></textarea>
+                        <textarea class="form-control" style="height: 190px;" name="descriptionForm" required></textarea>
                         <hr>
                         <h3>Etapes de reproduction</h3>
                         <div class="etapes">
+                            <input type="hidden" name="nbrEtapesInput" id="nbrEtapesInput" value="1"/>
                             <input type="text" class="form-control inner" name="etapeForm"/>
                         </div>
                         <br>
@@ -70,16 +71,17 @@
                         <script>
                             $("#ajouterEtape").click(function(){
                                 $( ".etapes" ).append( "<br><input type='text' class='form-control inner' name='etapeForm'/>" );
+                                $( "#nbrEtapesInput").val(parseInt($( "#nbrEtapesInput").val()) + 1)
                             })
                         </script>
                         <h3>Environnement</h3>
                         <div class="form-group">
                             <label for="osForm">Système d'exploitation</label>
-                            <input type="text" class="form-control" id="osForm" name="osForm" placeholder="Windows 8">
+                            <input type="text" class="form-control" id="osForm" name="osForm" placeholder="Windows 8" required>
                         </div>
                         <div class="form-group">
                             <label for="navForm">Navigateur</label>
-                            <input type="text" class="form-control" id="navForm" name="navForm" placeholder="Chromium X">
+                            <input type="text" class="form-control" id="navForm" name="navForm" placeholder="Chromium X" required>
                         </div>
                         <br>
                         <input type="submit" value="Valider le bug" class="form-control"/>
