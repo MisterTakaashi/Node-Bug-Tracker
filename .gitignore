@@ -73,3 +73,6 @@ $RECYCLE.BIN/
 
 # Windows shortcuts
 *.lnk
+
+static/bugs
+static/users
