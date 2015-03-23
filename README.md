@@ -4,7 +4,7 @@
 # Installation
 Pour installer ce Bug Tracker, il est simplement nescessaire de disposer de node sur son serveur.
 Téléchargez le repo, et tapez simplement: `node tracker.js`.
-Les dépendances sont directement inclues dans le répo, `npm install` n'est donc pas nescessaire.
+Les dépendances ne sont pas directement inclues dans le répo, `npm install` est donc nescessaire.
 
 # Fonctionnement
 Ce Bug Tracker fonctionne entièrement sous forme de fichiers. Les utilisateurs sont stockés dans le dossier `/static/users/` et les bugs dans le dossier `/static/bugs/`
